@@ -1,30 +1,26 @@
 class Ball {
 
-  //Add in color later:
-  constructor(col, size, x, y, xSpeed, ySpeed, name) {
+  constructor() {
     //Color
-    let r = 0;
-    let g = 0;
-    let b = 0;
-
-    this.ballC = color(col.r, col.g, col.b);
+    let r = random(0, 255);
+    let g = random(0, 255);
+    let b = random(0, 255);
+    this.ballC = color(r, g, b);
     this.strokeC = color(100, 60, 120);
-    this.name = name;
 
     //Size
-    this.size = size;
+    this.size = random(25, 75);
     this.radius = this.size / 2;
 
-    //The following three lines could probably all be refactored into one line:
-    let xPos = x * width;
-    let yPos = y * height;
+    let x = x * width;
+    let y = y * height;
 
-    this.pos = createVector(xPos, yPos);
+    this.pos = createVector(x, y);
 
     //Speed
-    let xVelocity = xSpeed;
-    let yVelocity = ySpeed;
-    this.speed = createVector(xVelocity, yVelocity);
+    let xSpeed = random(-5, 5);
+    let ySpeed = random(-5, 5);
+    this.speed = createVector(xSpeed, ySpeed);
   }
 
   move() {

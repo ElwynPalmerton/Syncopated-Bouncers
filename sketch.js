@@ -4,7 +4,7 @@ let bgc; //background color.
 
 //Sequencing variables
 let more = true; //Used in sequencing.
-let index = 0;
+let i = 0;
 let run = true;
 
 
@@ -22,7 +22,7 @@ function setup() {
   bgc = color(br, bg, bb);
   background(bgc);
   for (let i = 0; i < 4; i++) {
-    b = new Ball(30, objects[i].x, objects[i].y, 1, 1);  //Add name later.
+    b = new Ball({ r: 155, g: 155, b: 0 }, 30, objects[i].x, objects[i].y, 1, 1);  //Add name later.
     balls.push(b);
   };
 
