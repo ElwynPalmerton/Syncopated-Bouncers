@@ -22,11 +22,16 @@ let palette = [
     r: 0,
     g: 0,
     b: 155,
+  },
+  {
+    r: 155,
+    g: 0,
+    b: 155,
   }
 ];
 
 
-objects = [
+options = [
   //Color - This should be in a separate array or set of variables.
   //size
   //x, y position.
@@ -89,4 +94,40 @@ objects = [
     ySpeed: 2,
   }
 ];
+
+
+
+function options2() {
+  options2 = [{
+    size: 30,
+    x: 0.2,
+    y: 0.2,
+    xSpeed: 3,
+    ySpeed: 3,
+  },
+  {
+    size: 20,
+    x: 0.8,
+    y: 0.2,
+    xSpeed: -3,
+    ySpeed: 3,
+  },
+  {
+    size: 40,
+    x: 0.2,
+    y: 0.8,
+    xSpeed: 3,
+    ySpeed: -3,
+  },
+  {
+    size: 50,
+    x: 0.8,
+    y: 0.8,
+    xSpeed: -3,
+    ySpeed: -3,
+  }]
+
+  return options2;
+}
+
 

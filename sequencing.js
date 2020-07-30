@@ -1,61 +1,83 @@
 
-let section = [
+let red = { r: 250, g: 50, b: 100 };
+let peach = { r: 250, g: 100, b: 100 };
+
+let sequence1 = [
   {
-    f: addBalls,
-    args: 3,
-    //Other variables can go here.
-    //This should get an array of objects (size, position, speed);
-    //AND a color palette object.
-    //The functions need to be refactored to accommodate these factors.
+    color: red,
+    size: 60,
+    x: 0.5,
+    y: 0.5,
+    xSpeed: -2,
+    ySpeed: -2     //color, size, x, y, xSpeed, ySpeed, name
   },
   {
-    f: addColumn,
-    args: 4,
-  },
-  {
-    f: removeBalls,
-    args: 1,
+    color: peach,
+    size: 60,
+    x: 0.7,
+    y: 0.7,
+    xSpeed: -2.2,
+    ySpeed: -2.2     //color, size, x, y, xSpeed, ySpeed, name
   }
 ];
 
-//There can be simple yet limited as well as complex yet robust versions of various functions. 
-//addRow, addColumn, spreadRow, spreadColumn, starburst, staircase, 
-//evenRow, and evenColumn, 
-//Versions of these that take different combinations of variables but do similar things.
-//Make a list of what type of objects and arguments each of these need.
-//Do they need an object or just the list of arguments?
-//Set up ball so that it has default values for all of the arguments if they aren't passed in.
-
-function addColumn(numberToAdd) {
-  for (let i = 0; i < numberToAdd; i++) {
-    //args: color, size, x, y, xSpeed, ySpeed, name;
-    b = new Ball(palette[i], objects[i].size, objects[i].x, objects[i].y, objects[i].xSpeed, 0);  //Add name later.
-    balls.push(b);
+let sequence2 = [
+  {
+    color: { r: 100, g: 100, b: 100 },
+    size: 30,
+    x: 0.1,
+    y: 0.1,
+    xSpeed: 2,
+    ySpeed: 2     //color, size, x, y, xSpeed, ySpeed, name
+  },
+  {
+    color: { r: 100, g: 200, b: 100 },
+    size: 30,
+    x: 0.9,
+    y: 0.9,
+    xSpeed: -2,
+    ySpeed: -2     //color, size, x, y, xSpeed, ySpeed, name
   }
-}
+];
 
+let section = [
+  {
+    f: addBallsTwo,
+    args: sequence1,
+  },
+  {
+    f: addBallsTwo,   //args: color, size, x, y, xSpeed, ySpeed, name;
+    args: sequence2,
+  },
+  {
+    f: addBallsTwo, //number of balls to add
+    args: sequence1,
+  },
+  {
+    f: removeBalls,
+    args: 3,
+  },
+  {
+    f: addBallsTwo,
+    args: sequence2,
+  },
 
-function addBalls(numberToAdd) {
-  for (let i = 0; i < numberToAdd; i++) {
+];
+
+function addBallsTwo(options) {
+  for (let i = 0; i < options.length; i++) {
     //args: color, size, x, y, xSpeed, ySpeed, name;
-    b = new Ball(palette[i], objects[i].size, objects[i].x, objects[i].y, objects[i].xSpeed, objects[i].ySpeed);  //Add name later.
-    balls.push(b);
+    let o = options[i];
+    addBall2(o.color, o.size, o.x, o.y, o.xSpeed, o.ySpeed, o.name);
   }
 };
-
-
-function removeBalls(removeElementsQuantity) {
-  balls.splice(0, removeElementsQuantity);
-};
-
-
 
 function sequencing() {
   i = i % section.length;
   let intervalTwo = setTimeout(() => {
     section[i].f(section[i].args);
     i++;
-    if (i < section.length) {
+    if (i < 10) {
       sequencing();
     }
   }, 1000);

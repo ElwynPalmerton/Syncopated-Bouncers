@@ -6,6 +6,7 @@ let bgc; //background color.
 let more = true; //Used in sequencing.
 let i = 0;
 let run = true;
+let objects = [];
 
 
 function mousePressed() {
@@ -22,7 +23,7 @@ function setup() {
   bgc = color(br, bg, bb);
   background(bgc);
   for (let i = 0; i < 4; i++) {
-    b = new Ball({ r: 155, g: 155, b: 0 }, 30, objects[i].x, objects[i].y, 1, 1);  //Add name later.
+    b = new Ball({ r: 155, g: 155, b: 0 }, 30, options[i].x, options[i].y, 1, 1);  //Add name later.
     balls.push(b);
   };
 
