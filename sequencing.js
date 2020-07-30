@@ -54,10 +54,6 @@ let section = [
     args: sequence1,
   },
   {
-    f: removeBalls,
-    args: 3,
-  },
-  {
     f: addBallsTwo,
     args: sequence2,
   },
@@ -68,7 +64,8 @@ function addBallsTwo(options) {
   for (let i = 0; i < options.length; i++) {
     //args: color, size, x, y, xSpeed, ySpeed, name;
     let o = options[i];
-    addBall2(o.color, o.size, o.x, o.y, o.xSpeed, o.ySpeed, o.name);
+    let b = new Ball(o.color, o.size, o.x, o.y, o.xSpeed, o.ySpeed, o.name);
+    balls.push(b);
   }
 };
 
