@@ -40,6 +40,26 @@ let sequence2 = [
   }
 ];
 
+
+let sequence3 = [
+  {
+    color: { r: 100, g: 100, b: 100 },
+    size: 30,
+    x: 0.1,
+    y: 0.1,
+    xSpeed: 2,
+    ySpeed: 2     //color, size, x, y, xSpeed, ySpeed, name
+  },
+  {
+    color: { r: 100, g: 200, b: 100 },
+    size: 30,
+    x: 0.9,
+    y: 0.9,
+    xSpeed: -2,
+    ySpeed: -2     //color, size, x, y, xSpeed, ySpeed, name
+  }
+];
+
 let section = [
   {
     f: addBallsTwo,
